@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Report Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Investment Report Generator</h1>
+        <form method="POST">
+            <label>Portfolio Name:</label>
+            <input type="text" name="portfolio_name" required>
+            
+            <label>Client Name:</label>
+            <input type="text" name="client_name" required>
+    
+            <label>Risk Tolerance:</label>
+            <select name="risk_tolerance">
+                <option value="conservative">Conservative</option>
+                <option value="moderate">Moderate</option>
+                <option value="aggressive">Aggressive</option>
+            </select>
+    
+            <label>Investment Goals:</label>
+            <input type="text" name="investment_goals" required>
+    
+            <label>Benchmark:</label>
+            <input type="text" name="benchmark" required>
+    
+            <label>Asset Allocation:</label>
+            <input type="text" name="asset_allocation" required>
+    
+            <label>Net Return (%):</label>
+            <input type="text" name="return_net" required>
+    
+            <label>Benchmark Return (%):</label>
+            <input type="text" name="return_benchmark" required>
+    
+            <label>Risk Metrics:</label>
+            <input type="text" name="risk_metrics" required>
+    
+            <label>Top Holdings:</label>
+            <input type="text" name="top_holdings" required>
+    
+            <label>Underperforming Holdings:</label>
+            <input type="text" name="underperforming_holdings" required>
+    
+            <label>Investment Products:</label>
+            <input type="text" name="investment_products" required>
+    
+            <label>Market Outlook:</label>
+            <input type="text" name="market_outlook" required>
+    
+            <label>Date Range:</label>
+            <input type="text" name="date_range" required>
+    
+            <label>Region:</label>
+            <select name="region">
+                <option value="US">US</option>
+                <option value="EU">EU</option>
+                <option value="Other">Other</option>
+            </select>
+    
+            <button type="submit">Generate Report</button>
+        </form>
+    
+        {% if report %}
+        <div class="report-container">
+            <h2>Generated Report</h2>
+            <div class="report-section">
+                {{ report|safe }}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    
+</body>
+</html>
